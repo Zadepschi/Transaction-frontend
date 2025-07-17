@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 function Dashboard({ transactions }) {
   const { t } = useTranslation();
 
-  // Группировка расходов по категориям
+  
   const expenseData = transactions
     .filter(tx => tx.type === 'expense')
     .reduce((acc, tx) => {
@@ -18,7 +18,7 @@ function Dashboard({ transactions }) {
       return acc;
     }, []);
 
-  // Группировка доходов по категориям
+  
   const incomeData = transactions
     .filter(tx => tx.type === 'income')
     .reduce((acc, tx) => {

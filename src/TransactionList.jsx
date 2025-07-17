@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 function TransactionList({ transactions, onEdit, onDelete }) {
   const { t, i18n } = useTranslation();
 
-  // Группировка транзакций по месяцам
+  
   const groupedByMonth = transactions.reduce((acc, tx) => {
-    const month = tx.date.slice(0, 7); // формат YYYY-MM
+    const month = tx.date.slice(0, 7); 
     if (!acc[month]) acc[month] = [];
     acc[month].push(tx);
     return acc;

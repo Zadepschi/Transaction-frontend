@@ -8,7 +8,7 @@ function FinanceForm({ onAddTransaction, editingTransaction }) {
   const [category, setCategory] = useState('');
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [description, setDescription] = useState('');
-  const [id, setId] = useState(null); // used to distinguish editing mode
+  const [id, setId] = useState(null); 
   
   const { t } = useTranslation();
 
@@ -18,7 +18,7 @@ function FinanceForm({ onAddTransaction, editingTransaction }) {
     income: ['Salary', 'Gifts', 'Side Income', 'Other'],
   };
 
-  // Automatically fill form for editing
+  
   useEffect(() => {
     if (editingTransaction) {
       setType(editingTransaction.type);
@@ -52,7 +52,7 @@ function FinanceForm({ onAddTransaction, editingTransaction }) {
 
     onAddTransaction(transaction);
 
-    // Clear form
+   
     setType('expense');
     setAmount('');
     setCategory('');

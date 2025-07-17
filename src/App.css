@@ -1,4 +1,4 @@
-/* App.css */
+
 
 body {
    font-family: "Montserrat", sans-serif;
@@ -35,7 +35,7 @@ body {
   gap: 20px;
 }
 
-/* Левая колонка — форма */
+
 .form-container {
   flex: 1;
   min-width: 280px;
@@ -95,7 +95,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  overflow: auto; /* Позволяет прокручивать всё, если контент большой */
+  overflow: auto; 
 }
 
 .modal-content1 {
@@ -103,8 +103,8 @@ body {
   padding: 20px 30px;
   border-radius: 10px;
   max-width: 90%;
-  max-height: 90vh; /* Ограничиваем высоту модалки */
-  overflow-y: auto; /* Прокрутка ВНУТРИ модального окна */
+  max-height: 90vh; 
+  overflow-y: auto; 
   position: relative;
 }
 
@@ -118,7 +118,7 @@ body {
   cursor: pointer;
 }
 
-/* FinanceForm */
+
 form {
   display: flex;
   flex-direction: column;
@@ -166,8 +166,7 @@ form button:hover {
 
 
 .custom-button {
-  background-color: #70d674; /* зелёный */
-  color: white;
+  background-color: #70d674; 
   border: none;
   padding: 10px 30px;
   margin:  10px;
@@ -188,7 +187,7 @@ form button:hover {
   width: 60%;
 }
 
-/* TransactionList */
+
 .transaction-list-container {
   width: 45%;
 }

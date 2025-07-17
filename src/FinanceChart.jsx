@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 function FinanceChart({ data }) {
   const { t } = useTranslation();
 
-  // Кастомный тултип для перевода
+  
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
@@ -24,7 +24,7 @@ function FinanceChart({ data }) {
     return null;
   };
 
-  // Кастомная легенда для перевода
+ 
 const renderLegend = (props) => {
   const { payload } = props;
   return (

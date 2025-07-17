@@ -8,7 +8,7 @@ import Dashboard from "./Dashboard";
 import Swal from 'sweetalert2';
 import { useTranslation } from 'react-i18next';
 
-// Вынес функцию вне компонента, чтобы не создавать заново при каждом рендере
+
 function aggregateByMonth(transactions) {
   const monthly = {};
   transactions.forEach((tx) => {

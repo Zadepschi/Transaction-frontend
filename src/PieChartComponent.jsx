@@ -39,7 +39,7 @@ function PieChartComponent({ data, title }) {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
 
-  // Функция для отображения категории + процент
+  
 const renderCustomizedLabel = ({ percent, name }) => {
   return `${t(`${name}`)}: ${(percent * 100).toFixed(0)}%`;
 };
