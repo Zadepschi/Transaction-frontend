@@ -34,31 +34,32 @@ function App() {
     fetchTransactions();
   }, []);
 
-  const fetchTransactions = async () => {
-    try {
-      const res = await axios.get("http://localhost:4000/api/transactions");
-      setTransactions(res.data);
-    } catch (err) {
-      console.error("Ошибка загрузки транзакций:", err.message);
-    }
-  };
+const fetchTransactions = async () => {
+  try {
+    const res = await axios.get("https://transaction-backend-hgo9.onrender.com/api/transactions");
+    setTransactions(res.data);
+  } catch (err) {
+    console.error("Ошибка загрузки транзакций:", err.message);
+  }
+};
 
-  const handleAddOrUpdate = async (data) => {
-    try {
-      if (data._id) {
-        await axios.put(
-          `http://localhost:4000/api/transactions/${data._id}`,
-          data,
-        );
-      } else {
-        await axios.post("http://localhost:4000/api/transactions", data);
-      }
-      setEditingTransaction(null);
-      fetchTransactions();
-    } catch (err) {
-      console.error("Ошибка при сохранении транзакции:", err.message);
+const handleAddOrUpdate = async (data) => {
+  try {
+    const baseURL = "https://transaction-backend-hgo9.onrender.com/api/transactions";
+
+    if (data._id) {
+      await axios.put(`${baseURL}/${data._id}`, data);
+    } else {
+      await axios.post(baseURL, data);
     }
-  };
+
+    setEditingTransaction(null);
+    fetchTransactions();
+  } catch (err) {
+    console.error("Ошибка при сохранении транзакции:", err.message);
+  }
+};
+
 
 const handleDelete = async (id) => {
   const result = await Swal.fire({
@@ -71,17 +72,17 @@ const handleDelete = async (id) => {
     confirmButtonText: 'Yes, delete it',
     cancelButtonText: 'Cancel'
   });
-
-  if (result.isConfirmed) {
-    try {
-      await axios.delete(`http://localhost:4000/api/transactions/${id}`);
-      fetchTransactions();
-      Swal.fire('Deleted!', 'The transaction has been deleted.', 'success');
-    } catch (err) {
-      console.error('Error deleting transaction:', err.message);
-      Swal.fire('Error', 'Failed to delete the transaction', 'error');
-    }
+if (result.isConfirmed) {
+  try {
+    await axios.delete(`https://transaction-backend-hgo9.onrender.com/api/transactions/${id}`);
+    fetchTransactions();
+    Swal.fire('Deleted!', 'The transaction has been deleted.', 'success');
+  } catch (err) {
+    console.error('Error deleting transaction:', err.message);
+    Swal.fire('Error', 'Failed to delete the transaction', 'error');
   }
+}
+
 };
 
 
