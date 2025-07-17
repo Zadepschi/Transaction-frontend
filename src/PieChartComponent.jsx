@@ -66,7 +66,7 @@ const renderCustomizedLabel = ({ percent, name }) => {
         </Pie>
      <Tooltip
   formatter={(value, name) => [`${value}$`, t('Amount')]}
-  labelFormatter={(label) => t(`${label}`)} // обязательно с префиксом
+  labelFormatter={(label) => t(`${label}`)} 
 />
 <Legend
   formatter={(value) => t(`${value}`)}
