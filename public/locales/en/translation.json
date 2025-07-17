@@ -1,0 +1,52 @@
+{
+  "Finance Tracker": "Учёт финансов",
+  "Show Chart": "Показать график",
+    "Description (optional)": "Описание (необязательно)",
+    "e.g. grocery shopping": "например, покупки продуктов",
+   "My Transactions": "Мои транзакции",
+  "No transactions": "Нет транзакций",
+  "Income": "Доход",
+  "Expense": "Расход",
+  "Category": "Категория",
+  "Date": "Дата",
+  "Description": "Описание",
+  "Delete": "Удалить",
+  "Edit": "Редактировать",
+    "Expenses by Category": "Расходы по категориям",
+  "Income by Category": "Доходы по категориям",
+
+  "Add Transaction": "Добавить транзакцию",
+  "Edit Transaction": "Редактировать транзакцию",
+  "Transaction Type": "Тип транзакции",
+
+  "Amount": "Сумма",
+ 
+  "Select a category": "Выберите категорию",
+
+  "Add": "Добавить",
+  "Save": "Сохранить",
+
+
+    "Food": "Еда",
+    "Transport": "Транспорт",
+    "Fun": "Развлечения",
+    "Housing": "Жильё",
+    "Other": "Другое",
+    "Salary": "Зарплата",
+    "Gifts": "Подарки",
+    "Side Income": "Дополнительный доход",
+     "Show Dashboard": "Показать панель управления",
+     "Dashboard": "Панель управления",
+   "Finance Chart": "График финансов",
+     "Are you sure?": "Вы уверены?",
+  "Do you really want to delete this transaction?": "Вы действительно хотите удалить эту транзакцию?",
+  "Yes, delete it": "Да, удалить",
+  "Cancel": "Отмена",
+  "Deleted!": "Удалено!",
+  "The transaction has been deleted.": "Транзакция была удалена.",
+  "Error": "Ошибка",
+  "Failed to delete the transaction": "Не удалось удалить транзакцию",
+  "Error deleting transaction:": "Ошибка при удалении транзакции:"
+  
+  
+}

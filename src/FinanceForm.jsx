@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 
 function FinanceForm({ onAddTransaction, editingTransaction }) {
   const [type, setType] = useState('expense');
@@ -7,7 +9,9 @@ function FinanceForm({ onAddTransaction, editingTransaction }) {
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [description, setDescription] = useState('');
   const [id, setId] = useState(null); // used to distinguish editing mode
-  const [modalOpen, setModalOpen] = useState(false);
+  
+  const { t } = useTranslation();
+
 
   const categories = {
     expense: ['Food', 'Transport', 'Fun', 'Housing', 'Other'],
@@ -59,66 +63,66 @@ function FinanceForm({ onAddTransaction, editingTransaction }) {
 
   return (
     <form onSubmit={handleSubmit} style={{ maxWidth: 400, margin: 'auto' }}>
-      <h2>{id ? 'Edit' : 'Add'} Transaction</h2>
+      <h2>{id ? t('Edit Transaction') : t('Add Transaction')}</h2>
 
-      <label>
-        Transaction Type:
-        <select value={type} onChange={e => setType(e.target.value)}>
-          <option value="expense">Expense</option>
-          <option value="income">Income</option>
-        </select>
-      </label>
+<label>
+  {t('Transaction Type')}:
+  <select value={type} onChange={e => setType(e.target.value)}>
+    <option value="expense">{t('Expense')}</option>
+    <option value="income">{t('Income')}</option>
+  </select>
+</label>
 
-      <label>
-        Amount:
-        <input
-          type="number"
-          value={amount}
-          onChange={e => setAmount(e.target.value)}
-          step="0.01"
-          min="0"
-          required
-        />
-      </label>
+<label>
+  {t('Amount')}:
+  <input
+    type="number"
+    value={amount}
+    onChange={e => setAmount(e.target.value)}
+    step="0.01"
+    min="0"
+    required
+  />
+</label>
 
-      <label>
-        Category:
-        <select
-          value={category}
-          onChange={e => setCategory(e.target.value)}
-          required
-        >
-          <option value="">Select a category</option>
-          {categories[type].map(cat => (
-            <option key={cat} value={cat}>{cat}</option>
-          ))}
-        </select>
-      </label>
+<label>
+  {t('Category')}:
+  <select
+    value={category}
+    onChange={e => setCategory(e.target.value)}
+    required
+  >
+    <option value="">{t('Select a category')}</option>
+    {categories[type].map(cat => (
+      <option key={cat} value={cat}>{t(`${cat}`)}</option>
+    ))}
+  </select>
+</label>
 
-      <label>
-        Date:
-        <input
-          type="date"
-          value={date}
-          onChange={e => setDate(e.target.value)}
-          required
-        />
-      </label>
+<label>
+  {t('Date')}:
+  <input
+    type="date"
+    value={date}
+    onChange={e => setDate(e.target.value)}
+    required
+  />
+</label>
 
-      <label>
-        Description (optional):
-        <input
-          type="text"
-          value={description}
-          onChange={e => setDescription(e.target.value)}
-          placeholder="e.g. grocery shopping"
-        />
-      </label>
+<label>
+  {t("Description (optional)")}:
+  <input
+    type="text"
+    value={description}
+    onChange={e => setDescription(e.target.value)}
+    placeholder={t("e.g. grocery shopping")}
+  />
+</label>
 
-      <button type="submit" style={{ marginTop: 10 }}>
-        {id ? 'Save' : 'Add'}
-      </button>
-     
+<button type="submit" style={{ marginTop: 10 }}>
+  {id ? t('Save') : t('Add')}
+</button>
+
     </form>
   );
 }

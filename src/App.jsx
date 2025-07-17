@@ -6,6 +6,7 @@ import "./App.css";
 import FinanceChart from "./FinanceChart";
 import Dashboard from "./Dashboard";
 import Swal from 'sweetalert2';
+import { useTranslation } from 'react-i18next';
 
 // Вынес функцию вне компонента, чтобы не создавать заново при каждом рендере
 function aggregateByMonth(transactions) {
@@ -29,7 +30,12 @@ function App() {
   const [editingTransaction, setEditingTransaction] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [dashboardOpen, setDashboardOpen] = useState(false);
+  const {i18n, t } = useTranslation();
 
+
+   const toglleLang = () => {
+    i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en');
+  };
   useEffect(() => {
     fetchTransactions();
   }, []);
@@ -63,28 +69,27 @@ const handleAddOrUpdate = async (data) => {
 
 const handleDelete = async (id) => {
   const result = await Swal.fire({
-    title: 'Are you sure?',
-    text: "Do you really want to delete this transaction?",
+    title: t('Are you sure?'),
+    text: t('Do you really want to delete this transaction?'),
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#d33',
     cancelButtonColor: '#3085d6',
-    confirmButtonText: 'Yes, delete it',
-    cancelButtonText: 'Cancel'
+    confirmButtonText: t('Yes, delete it'),
+    cancelButtonText: t('Cancel')
   });
-if (result.isConfirmed) {
-  try {
-    await axios.delete(`https://transaction-backend-hgo9.onrender.com/api/transactions/${id}`);
-    fetchTransactions();
-    Swal.fire('Deleted!', 'The transaction has been deleted.', 'success');
-  } catch (err) {
-    console.error('Error deleting transaction:', err.message);
-    Swal.fire('Error', 'Failed to delete the transaction', 'error');
+
+  if (result.isConfirmed) {
+    try {
+      await axios.delete(`https://transaction-backend-hgo9.onrender.com/api/transactions/${id}`);
+      fetchTransactions();
+      Swal.fire(t('Deleted!'), t('The transaction has been deleted.'), 'success');
+    } catch (err) {
+      console.error(t('Error deleting transaction:'), err.message);
+      Swal.fire(t('Error'), t('Failed to delete the transaction'), 'error');
+    }
   }
-}
-
 };
-
 
 
   const chartData = aggregateByMonth(transactions);
@@ -92,7 +97,10 @@ if (result.isConfirmed) {
   return (
     <>
       <div className="container">
-        <h1 style={{ textAlign: "center" }}>Finance Tracker</h1>
+        <h1 style={{ textAlign: "center" }}> {t('Finance Tracker')}</h1>
+        <button onClick={toglleLang} className="lang-button">
+          {i18n.language === 'en' ? 'EN'  : 'RU'}
+        </button>
         <div className="app-content">
           <div className="form-container">
             <FinanceForm
@@ -101,7 +109,7 @@ if (result.isConfirmed) {
             />
           <div  className="showButtons">
             <div>
-              <button className="custom-button" onClick={() => setModalOpen(true)}>Show Chart</button>
+              <button className="custom-button" onClick={() => setModalOpen(true)}>{t("Show Chart")}</button>
 
               {modalOpen && (
                 <div
@@ -118,7 +126,7 @@ if (result.isConfirmed) {
                     >
                       ×
                     </button>
-                    <h2>Finance Chart</h2>
+                    <h2>{t("Finance Chart")}</h2>
                     <FinanceChart data={chartData} />
                   </div>
                 </div>
@@ -127,7 +135,7 @@ if (result.isConfirmed) {
 
             <div>
               <button className="custom-button" onClick={() => setDashboardOpen(true)}>
-                Show Dashboard
+               {t( "Show Dashboard")}
               </button>
 
               {dashboardOpen && (
@@ -145,7 +153,7 @@ if (result.isConfirmed) {
                     >
                       ×
                     </button>
-                    <h2>Dashboard</h2>
+                    <h2>{t('Dashboard')}</h2>
                     <Dashboard transactions={transactions} />
                   </div>
                 </div>

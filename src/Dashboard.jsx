@@ -1,7 +1,10 @@
 import React from 'react';
 import PieChartComponent from './PieChartComponent';
+import { useTranslation } from 'react-i18next';
 
 function Dashboard({ transactions }) {
+  const { t } = useTranslation();
+
   // Группировка расходов по категориям
   const expenseData = transactions
     .filter(tx => tx.type === 'expense')
@@ -29,10 +32,10 @@ function Dashboard({ transactions }) {
     }, []);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
-      <PieChartComponent data={expenseData} title="Expenses by Category" />
-      <PieChartComponent data={incomeData} title="Income by Category" />
-    </div>
+  <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+  <PieChartComponent data={expenseData} title="Expenses by Category" />
+  <PieChartComponent data={incomeData} title="Income by Category" />
+</div>
   );
 }
 
