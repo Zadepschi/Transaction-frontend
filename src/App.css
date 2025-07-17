@@ -1,0 +1,316 @@
+/* App.css */
+
+body {
+   font-family: "Montserrat", sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 95%;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f7f7eb;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+}
+.app-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+/* Левая колонка — форма */
+.form-container {
+  flex: 1;
+  min-width: 280px;
+  max-width: 450px;
+}
+.head {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  width: 100%;
+  height: 300px;
+  background-color: #f9fafb;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-container {
+  background-color: #f9fafb;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 70%;
+  width: 90%;
+  position: relative;
+}
+.modal-overlay1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: auto; /* Позволяет прокручивать всё, если контент большой */
+}
+
+.modal-content1 {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90vh; /* Ограничиваем высоту модалки */
+  overflow-y: auto; /* Прокрутка ВНУТРИ модального окна */
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* FinanceForm */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form h2 {
+  text-align: center;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+form input,
+form select {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
+}
+
+form button {
+  padding: 10px;
+  background-color: #6eb3fc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+.showButtons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+
+.custom-button {
+  background-color: #70d674; /* зелёный */
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  margin:  10px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+}
+
+.custom-button:hover {
+  background-color: #45a049;
+}
+
+
+
+.chart-container {
+  width: 60%;
+}
+
+/* TransactionList */
+.transaction-list-container {
+  width: 45%;
+}
+.transaction-list {
+  list-style: none;
+  padding: 0;
+}
+
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-item strong {
+  margin-right: 5px;
+}
+
+.transaction-item .deleteBtn {
+  margin: 8px;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.transaction-item .editBtn {
+  margin: 8px;
+  padding: 5px 18px;
+  background-color: #70d674;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.transaction-item button:hover {
+  background-color: #b52a37;
+}
+
+
+.transaction-container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.transaction-list {
+  list-style: none;
+  padding: 0;
+}
+
+.transaction-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fdfdfd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+
+}
+
+@media (max-width: 1520px) {
+.modal-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 70%;
+  width: 100%;
+  
+}
+}
+
+
+@media (max-width: 890px) {
+  .form-container {
+
+  max-width: 300px;
+}
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 20px;
+}
+.head {
+  font-size: 20px;
+}
+.custom-button {
+  padding: 10px 15px;
+  margin:  10px;
+  font-size: 14px;
+}
+
+}
+
+
+
+@media (max-width: 675px) {
+  .form-container {
+  max-width: 250px;
+}
+
+
+}
+
+@media (max-width: 600px) {
+  .app-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container, .transaction-list-container {
+    width: 100%;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: none;
+  }
+.custom-button {
+ padding: 10px 25px;
+  margin:  18px;
+  font-size: 14px;
+}
+.showButtons  {
+  margin-top: 10px;
+ justify-content: center;
+}
+}
+
+@media (max-width: 375px) {
+  .custom-button {
+ padding: 10px 15px;
+  margin:  10px;
+  font-size: 14px;
+}
+}
