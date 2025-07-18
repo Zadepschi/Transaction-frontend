@@ -9,7 +9,7 @@ body {
 .lang-button {
   position: absolute;
   top: 60px;
-  right: 40px;
+  right: 60px;
   padding: 10px 15px;
   background-color: #a8a9ac;
   color: white;
@@ -20,7 +20,7 @@ body {
 }
 
 .container {
-  width: 95%;
+  width: 90%;
   margin: 30px auto;
   padding: 20px;
   background-color: #f7f7eb;
@@ -263,8 +263,8 @@ form button:hover {
 
 @media (max-width: 890px) {
   .lang-button {
-    top: 40px;
-    right: 20px;
+    top: 45px;
+    right: 40px;
     padding: 10px;
   }
   .form-container {
@@ -299,11 +299,15 @@ h2 {
 }
 
 @media (max-width: 600px) {
+  .container {
+  width: 80%; 
+  margin: 20px;
+  }
   .lang-button {
     top: 40px;
-    right: 0;
+    right: 45px;
     padding: 8px 12px;
-    font-size: 14px;
+    font-size: 12px;
   }
   .app-content {
     flex-direction: column;
@@ -332,7 +336,7 @@ h2 {
 @media (max-width: 375px) {
 
    .lang-button {
-
+  right: 10px;
     padding: 8px 8px;
     font-size: 12px;
   }
