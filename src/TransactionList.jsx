@@ -37,7 +37,7 @@ function TransactionList({ transactions, onEdit, onDelete }) {
                   <strong>{t(tx.type === 'income' ? 'Income' : 'Expense')}:</strong> {tx.amount}$
                 </div>
                 <div>
-                  <strong>{t('Category')}:</strong> {tx.category}
+                  <strong>{t('Category')}:</strong> {t(`${tx.category}`)}
                 </div>
                 <div>
                   <strong>{t('Date')}:</strong> {tx.date.slice(0, 10)}
